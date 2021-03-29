@@ -21,7 +21,7 @@ namespace Rocky.Controllers
         // getting Database information to display to the view 
         public IActionResult Index()
         {
-            IEnumerable<Category> objList = _db.Categories;
+            IEnumerable<Category> objList = _db.Categories.OrderBy(s => s.DisplayOrder);
             return View(objList);
         }
 
