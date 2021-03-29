@@ -20,5 +20,7 @@ namespace Rocky.Models
         [Required]
         [Range(1, int.MaxValue, ErrorMessage = "Display Order for category must be greater than 0")]
         public int DisplayOrder { get; set; }
+
+        public DateTime created { get; set; }
     }
 }

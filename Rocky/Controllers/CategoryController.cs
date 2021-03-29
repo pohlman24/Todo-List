@@ -26,15 +26,16 @@ namespace Rocky.Controllers
         }
 
         // GET - CREATE
-        public IActionResult Create()
+        public IActionResult Create(Category obj)
         {
-            return View();
+            obj.created = DateTime.Now;
+            return View(obj);
         }
 
         // POST - CREATE
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public IActionResult Create(Category obj)
+        public IActionResult CreatePost(Category obj)
         {
             if (ModelState.IsValid)
             {
@@ -91,9 +92,9 @@ namespace Rocky.Controllers
             var obj = _db.Categories.Find(id);
             if (obj == null)
             {
-                return NotFound();
+                return NotFound();                                             
             }
-            return View(obj);
+            return View(obj);                               
         }
 
         // POST - DELETE
